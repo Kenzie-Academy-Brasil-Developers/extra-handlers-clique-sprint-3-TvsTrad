@@ -12,9 +12,13 @@
     <body>
         <h1>An interactive web page</h1>
 
-        <h2>1. Color changer</h2>
-        <button id="gray_button">Gray</button>
-        <button id="blue_button">Blue</button>
+        <h2 >1. Color changer</h2>
+        <div id="colors" >
+            <button id="gray_button">Gray</button>
+            <button id="blue_button">Blue</button>
+        </div>
+        
+        
         <div id="color_box" class="gray"></div>        
         <script>
             const color_box = document.getElementById("color_box");
@@ -28,12 +32,20 @@
             blue_button.onclick = function () {
                 color_box.className = "blue";
             };
+            
+            const colorpicker = document.getElementById("colors");
+            
+            const add_pink_button = document.createElement('button');
+            add_pink_button.setAttribute('id', 'pink_button')
+            
+            colorpicker.appendChild(add_pink_button);
 
-            /* TODO 1
-             *
-             *  Adicionar um botão e um event handler 
-             *  e o botão torna o quadrado rosa.
-             */
+            const pink_button = document.getElementById('pink_button');
+            pink_button.innerText = "Pink"
+            pink_button.onclick = function () {
+                color_box.className = "pink"
+            };
+
         </script>
 
         <hr>
@@ -47,6 +59,8 @@
             
             const counter_button = document.getElementById("counter_button");
             counter_button.onclick = function() {
+                count++;
+                countspan.innerText= count
                 /* TODO 2
                  *
                  *  A função incrementa 1 em um contador "count", 
@@ -63,6 +77,14 @@
         <script>
             const even_or_odd_button = document.getElementById("even_or_odd_button");
             even_or_odd_button.onclick = function() {
+                if( count%2 === 0){
+                    alert(" O contador é par ")
+                }
+                else {
+                    alert(" O contador é impar ")
+                }
+
+
                 /* TODO 3
                  *
                  * A função mostra um "alert dialog" mostrando se o contador 
